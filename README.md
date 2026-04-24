@@ -62,7 +62,7 @@ APT_Project/
 
 ### 1. Clone the repository
 
-git clone https://github.com/your-username/apt-project.git
+git clone https://github.com/RekhapalliUmaSatyaSantosh/RANK-AI-for-APT-s.git
 
 ### 2. Navigate to project folder
 
