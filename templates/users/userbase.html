@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{% block title %}Enterprise Persistent Attack Detection{% endblock %}</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+{% block custom_css %}{% endblock custom_css %}
+
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:url("{% static 'img/cyber-bg.jpg' %}") no-repeat center center/cover;
+    background-attachment:fixed;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    color:#e6f1ff;
+}
+
+/* Force Font Awesome icons */
+i{
+    font-family:'Font Awesome 6 Free','Font Awesome 6 Brands',sans-serif !important;
+    font-weight:900!important;
+}
+
+/* HEADER */
+header{
+    background:linear-gradient(135deg,#020024,#090979,#00d4ff);
+    color:#fff;
+    padding:45px 20px;
+    text-align:center;
+    box-shadow:0 4px 12px rgba(0,0,0,0.5);
+}
+
+header h1{
+    font-size:2rem;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    font-weight:700;
+    text-shadow:2px 2px 8px rgba(0,0,0,0.6);
+}
+
+/* NAVIGATION */
+nav{
+    background:rgba(0,0,0,0.9);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    padding:12px 0;
+    gap:20px;
+}
+
+nav ul li a{
+    color:#00e6e6;
+    font-size:1.1rem;
+    font-weight:600;
+    padding:10px 20px;
+    border-radius:8px;
+    transition:all .3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active{
+    background:#00e6e6;
+    color:#000;
+    transform:translateY(-2px);
+}
+
+/* MAIN CONTENT */
+main{
+    flex:1;
+    max-width:1200px;
+    margin:40px auto;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(8px);
+    border-radius:15px;
+    box-shadow:0 12px 30px rgba(0,0,0,0.5);
+}
+
+/* FOOTER */
+footer{
+    background:#000;
+    color:#ccc;
+    text-align:center;
+    padding:18px 0;
+    font-size:.9rem;
+}
+
+@media(max-width:768px){
+    header h1{font-size:1.4rem;}
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>
+INTELLIGENT ARCHITECTURE FOR DETECTING ADVANCED PERSISTENT ATTACKS IN ENTERPRISE ENVIRONMENT
+</h1>
+</header>
+
+<nav>
+<ul>
+<li><a href="{% url 'UserHome' %}" class="active"><i class="fa-solid fa-house"></i> Home</a></li>
+<li><a href="{% url 'prediction' %}"><i class="fa-solid fa-shield-halved"></i> Detect Attack</a></li>
+<li><a href="{% url 'index' %}"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+</ul>
+</nav>
+
+<main>
+{% block contents %}
+{% endblock %}
+</main>
+
+<footer>
+<p>
+© 2026 Enterprise Cyber Defense Platform | Persistent Attack Detection System
+</p>
+</footer>
+
+</body>
+</html>

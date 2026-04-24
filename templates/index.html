@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% block contents %}
+{% load static %}
+
+<div class="content d-flex flex-column justify-content-center align-items-center" 
+     style="min-height: 90vh; text-align: center; padding: 40px; background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);">
+
+    <!-- PROJECT TITLE -->
+    <h1 style="
+        color: #00e6e6;
+        text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.9);
+        font-size: 2.7rem;
+        margin-bottom: 30px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.4;
+    ">
+        INTELLIGENT ARCHITECTURE FOR DETECTING ADVANCED PERSISTENT ATTACKS IN ENTERPRISE ENVIRONMENT
+    </h1>
+
+    <!-- DESCRIPTION BOX -->
+    <div class="project-description" style="
+        max-width: 750px;
+        background: rgba(0, 0, 0, 0.65);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    "
+    onmouseover="this.style.transform='scale(1.04)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.8)';" 
+    onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 8px 25px rgba(0,0,0,0.6)';">
+
+        <!-- CYBER IMAGE -->
+        <img src="{% static 'images/cyber_security_network.jpg' %}"
+             alt="Cyber Security" 
+             style="
+                 width:100%;
+                 max-width:650px;
+                 height:auto;
+                 border-radius: 12px;
+                 box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+                 margin-bottom: 20px;
+                 transition: transform 0.3s ease;
+             "
+             onmouseover="this.style.transform='scale(1.05)';"
+             onmouseout="this.style.transform='scale(1)';"
+        >
+
+        <!-- DESCRIPTION -->
+        <p style="
+            color: #ffffff;
+            font-size: 1.15rem;
+            line-height: 1.7;
+            margin-top: 10px;
+        ">
+            This project presents an AI-assisted end-to-end architecture designed to detect persistent cyber attacks in enterprise networks. 
+            By leveraging machine learning, behavioral analytics, and intelligent threat ranking, the system identifies malicious activities, 
+            analyzes attack patterns, and supports proactive defense strategies for modern digital infrastructures.
+        </p>
+
+        <!-- FEATURES -->
+        <p style="color:#a8f0ff; font-size:1.05rem; margin-top:15px;">
+            • Real-time intrusion detection<br>
+            • Persistent threat analysis<br>
+            • Machine learning-based attack classification<br>
+            • Enterprise network protection
+        </p>
+
+        <!-- CTA BUTTON -->
+        <a href="{% url 'prediction' %}" style="
+            display: inline-block;
+            margin-top: 25px;
+            padding: 13px 28px;
+            background: #00e6e6;
+            color: #000;
+            font-weight: bold;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+            transition: all 0.3s ease;
+        "
+        onmouseover="this.style.background='#00b3b3'; this.style.transform='translateY(-3px)';" 
+        onmouseout="this.style.background='#00e6e6'; this.style.transform='translateY(0)';">
+            🚀 Start Attack Detection
+        </a>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,165 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enterprise Cyber Security Admin Dashboard</title>
+
+<style>
+    *, *::before, *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+        background: linear-gradient(160deg, #0f2027, #203a43, #2c5364);
+        color: #e6f1ff;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        line-height: 1.6;
+    }
+
+    header {
+        background: linear-gradient(135deg, #020024, #090979, #00d4ff);
+        color: #fff;
+        padding: 50px 20px;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    header h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+    }
+
+    nav {
+        background: rgba(0,0,0,0.85);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 12px 0;
+        gap: 20px;
+    }
+
+    nav ul li a {
+        color: #00e6e6;
+        font-size: 1.1rem;
+        font-weight: 600;
+        padding: 10px 20px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    nav ul li a:hover {
+        background: #00e6e6;
+        color: #000;
+    }
+
+    main {
+        flex: 1;
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 30px;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        margin-bottom: 25px;
+        border: 1px solid rgba(0,255,255,0.2);
+    }
+
+    .card h3 {
+        color: #00e6e6;
+        margin-bottom: 15px;
+    }
+
+    footer {
+        background-color: #000;
+        color: #ccc;
+        text-align: center;
+        padding: 18px 0;
+        font-size: 0.9rem;
+    }
+</style>
+
+</head>
+<body>
+
+<header>
+    <h1>
+        INTELLIGENT ARCHITECTURE FOR DETECTING ADVANCED PERSISTENT ATTACKS IN ENTERPRISE ENVIRONMENT
+    </h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="{% url 'adminhome' %}">Dashboard</a></li>
+        <li><a href="{% url 'RegisterUsersView' %}">Users</a></li>
+        <li><a href="{% url 'ViewDataset' %}">Network Dataset</a></li>
+        <li><a href="{% url 'training' %}">Train Detection Models</a></li>
+        <!-- <li><a href="{% url 'prediction' %}">Run Attack Detection</a></li> -->
+        <li><a href="{% url 'index' %}">Logout</a></li>
+    </ul>
+</nav>
+
+<main>
+    {% block contents %}
+
+    <div class="card">
+        <h3>👥 Registered Enterprise Users</h3>
+        <p>Monitor and manage all system users accessing the cyber attack detection platform.</p>
+    </div>
+
+    <div class="card">
+        <h3>🗂 Network Traffic Dataset</h3>
+        <p>View uploaded DARPA intrusion dataset and analyze traffic patterns.</p>
+    </div>
+
+    <div class="card">
+        <h3>🧠 Model Training & Evaluation</h3>
+        <p>Train ML models such as Random Forest, SVM, KNN, XGBoost for persistent attack detection.</p>
+    </div>
+
+    <div class="card">
+        <h3>🚨 Persistent Threat Detection</h3>
+        <p>Run AI-based prediction to identify advanced persistent threats (APT) in enterprise networks.</p>
+    </div>
+
+    <div class="card">
+        <h3>📊 Threat Intelligence Insights</h3>
+        <p>Analyze detected attack types, severity levels, and network risk factors.</p>
+    </div>
+
+    {% endblock %}
+</main>
+
+<footer>
+    <p>
+        © 2026 Rank AI Cyber Defense Platform |
+        Enterprise Persistent Attack Detection System
+    </p>
+</footer>
+
+</body>
+</html>

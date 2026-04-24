@@ -1,0 +1,199 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navbar */
+        .navbar-custom {
+            background-color: rgba(0, 0, 0, 0.85);
+            padding: 15px 30px;
+        }
+        .navbar-custom .nav-link {
+            color: white !important;
+            margin: 0 10px;
+            transition: color 0.3s, border-bottom 0.3s;
+        }
+        .navbar-custom .nav-link:hover {
+            color: #FFD700 !important;
+            border-bottom: 2px solid #FFD700;
+        }
+        .navbar-brand {
+            color: #FFD700 !important;
+            font-weight: bold;
+        }
+
+        /* Login form */
+        .main-container {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 100%;
+            max-width: 420px;
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .admin-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-wrapper i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+            font-size: 16px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px 15px 15px 45px;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-secondary {
+            background: #f8fafc;
+            color: #64748b;
+            border: 2px solid #e2e8f0;
+        }
+
+        .forgot-password {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .forgot-password a {
+            color: #667eea;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<!-- <nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'index' %}">Air Quality Prediction</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'UserLogin' %}">User Login</a></li>
+                <li class="nav-item"><a class="nav-link active" href="{% url 'AdminLoginCheck' %}">Admin Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'UserRegisterForm' %}">Create Account</a></li>
+            </ul>
+        </div>
+    </div>
+</nav> -->
+
+<!-- Admin Login Form -->
+<div class="main-container">
+    <div class="login-container">
+        <div class="login-header">
+            <div class="admin-icon"><i class="fas fa-user-shield"></i></div>
+            <h1>Admin Portal</h1>
+            <p>Please sign in to access the dashboard</p>
+        </div>
+
+        <form action="AdminLogincheck" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="loginid">Login ID</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="loginid" name="loginid" class="form-control" placeholder="Enter your login ID" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" name="pswd" class="form-control" placeholder="Enter your password" required>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Sign In</button>
+                <button type="reset" class="btn btn-secondary"><i class="fas fa-redo"></i> Reset</button>
+            </div>
+        </form>
+
+        <div class="forgot-password">
+            <a href="#" onclick="alert('Please contact system administrator')">Forgot your password?</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+{% endblock %}

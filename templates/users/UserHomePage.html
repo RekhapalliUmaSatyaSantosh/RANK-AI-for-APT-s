@@ -1,0 +1,147 @@
+{% extends 'users/userbase.html' %}
+{% load static %}
+
+{% block custom_css %}
+<style>
+    body {
+        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364) !important;
+        color: #e6f1ff;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        max-width: 1000px;
+        margin: 50px auto;
+        padding: 20px;
+    }
+
+    .card {
+        position: relative;
+        border-radius: 25px;
+        padding: 40px;
+        background: rgba(0,0,0,0.65);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+        text-align: center;
+        overflow: hidden;
+        transition: all .4s;
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 25px 55px rgba(0, 0, 0, 0.8);
+    }
+
+    .card h2 {
+        margin-bottom: 15px;
+        color: #00e6e6;
+        font-size: 2.2em;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    .card p {
+        line-height: 1.7;
+        font-size: 1.1em;
+        color: #d1eaff;
+        margin-bottom: 35px;
+    }
+
+    .features {
+        display: flex;
+        justify-content: space-between;
+        gap: 25px;
+        margin-top: 20px;
+    }
+
+    .feature-item {
+        flex: 1;
+        min-width: 260px;
+        background: rgba(255,255,255,0.05);
+        border-radius: 20px;
+        padding: 30px 15px;
+        border: 1px solid rgba(0,255,255,0.2);
+        transition: all .4s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature-item:hover {
+        transform: scale(1.06);
+        background: rgba(0,255,255,0.08);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    }
+
+    .feature-item i {
+        width: 70px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 40px !important;
+        margin-bottom: 15px;
+        color: #00e6e6;
+        background: rgba(0,255,255,0.1);
+        border-radius: 50%;
+        transition: all .3s;
+    }
+
+    .feature-item:hover i {
+        color: #000;
+        background: #00e6e6;
+        transform: rotateY(360deg);
+    }
+
+    .feature-item p {
+        font-size: 1em;
+        font-weight: 600;
+        color: #ffffff;
+        margin: 0;
+        text-align: center;
+    }
+
+    @media (max-width: 900px) {
+        .features { flex-direction: column; }
+    }
+</style>
+{% endblock custom_css %}
+
+{% block contents %}
+
+<div class="content">
+    <div class="card">
+        <h2>AI Persistent Attack Detection</h2>
+        <p>
+            An intelligent end-to-end architecture designed to detect persistent cyber attacks in enterprise networks 
+            using advanced machine learning, behavioral analysis, and threat intelligence techniques.
+        </p>
+
+        <div class="features">
+
+            <div class="feature-item">
+                <i class="fas fa-shield-halved"></i>
+                <p>Enterprise Intrusion Detection using Machine Learning</p>
+            </div>
+
+            <div class="feature-item">
+                <i class="fas fa-network-wired"></i>
+                <p>Network Traffic Analysis & Persistent Threat Identification</p>
+            </div>
+
+            <div class="feature-item">
+                <i class="fas fa-brain"></i>
+                <p>AI-Driven Attack Classification & Threat Ranking</p>
+            </div>
+
+            <div class="feature-item">
+                <i class="fas fa-chart-line"></i>
+                <p>Real-Time Cyber Risk Monitoring & Prediction</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

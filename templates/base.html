@@ -1,0 +1,173 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Persistent Attack Detection | Enterprise Cyber Security</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --dark-background: rgba(10, 15, 25, 0.95);
+            --primary-accent: #00e6e6;
+            --secondary-text: #e2e8f0;
+            --glass-background: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            background-image: url("{% static 'background.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--secondary-text);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ------------------ NAVBAR ------------------ */
+        .navbar-custom {
+            background-color: var(--dark-background); 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+            padding: 15px 0;
+        }
+        
+        .navbar-brand {
+            color: var(--primary-accent) !important;
+            font-weight: 800;
+            font-size: 1.5rem;
+            text-shadow: 0 0 8px rgba(0, 230, 230, 0.7);
+            letter-spacing: 0.5px;
+        }
+        
+        .navbar-custom .nav-link {
+            color: var(--secondary-text) !important;
+            margin: 0 10px;
+            padding: 8px 15px;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+        
+        .navbar-custom .nav-link:hover,
+        .navbar-custom .nav-link.active {
+            color: var(--primary-accent) !important;
+            border-bottom: 2px solid var(--primary-accent);
+            background-color: rgba(0, 230, 230, 0.1);
+            border-radius: 5px 5px 0 0;
+        }
+
+        /* ------------------ CONTENT ------------------ */
+        .content {
+            flex-grow: 1;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        
+        h1, h2, h3 {
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+            color: var(--secondary-text);
+        }
+ 
+        /* ------------------ CARD STYLE ------------------ */
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            max-width: 1000px;
+            width: 100%;
+            color: var(--secondary-text);
+        }
+        
+        /* ------------------ FOOTER ------------------ */
+        .main-footer {
+            background-color: rgba(0, 0, 0, 0.85);
+            color: var(--secondary-text);
+            text-align: center;
+            padding: 15px 0;
+            font-size: 0.85rem;
+            margin-top: auto;
+        }
+
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'index' %}">
+            <i class="fas fa-shield-alt me-2"></i>
+            AI Persistent Attack Detection System
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'index' %}">
+                        <i class="fas fa-home me-1"></i> Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'UserLogin' %}">
+                        <i class="fas fa-user me-1"></i> User Login
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'AdminLoginCheck' %}">
+                        <i class="fas fa-user-shield me-1"></i> Admin Login
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'UserRegisterForm' %}">
+                        <i class="fas fa-user-plus me-1"></i> Register
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'prediction' %}">
+                        <i class="fas fa-search me-1"></i> Detect Attack
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="content">
+    {% block contents %}
+    {% endblock %}
+</div>
+
+<footer class="main-footer">
+    <div class="container">
+        <p class="mb-0">
+            © 2026 INTELLIGENT ARCHITECTURE FOR DETECTING ADVANCED PERSISTENT ATTACKS IN ENTERPRISE ENVIRONMENT |
+            Developed for Cyber Threat Intelligence & Enterprise Security
+        </p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

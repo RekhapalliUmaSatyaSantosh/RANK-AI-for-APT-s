@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+<style>
+    /* Full-page background */
+    .content {
+        background-image: url('{{ MEDIA_URL }}air.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Login form container */
+    .form-container {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 40px 30px;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        width: 100%;
+        max-width: 400px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .form-container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Heading */
+    .form-container h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 28px;
+        color: #1c1c1c;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    }
+
+    /* Input fields */
+    .form-group input {
+        width: 100%;
+        padding: 12px 15px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        outline: none;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .form-group input:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+    /* Buttons */
+    .btn-block {
+        width: 100%;
+        padding: 12px;
+        margin-top: 10px;
+        font-weight: 600;
+        border-radius: 8px;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border: none;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border: none;
+    }
+
+    .btn-secondary:hover {
+        background-color: #565e64;
+        transform: translateY(-2px);
+    }
+
+    /* Messages */
+    .alert {
+        margin-top: 15px;
+        border-radius: 8px;
+        padding: 12px;
+        font-size: 14px;
+    }
+
+</style>
+
+<div class="content">
+    <div class="form-container">
+        <h2>User Login Form</h2>
+        
+        <form action="{% url 'UserLoginCheck' %}" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" class="form-control" name="loginid" required placeholder="Enter Login ID">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="pswd" required placeholder="Enter Password">
+            </div>
+            <div class="form-group text-center">
+                <button class="btn btn-primary btn-block" type="submit">Login</button>
+                <button class="btn btn-secondary btn-block" type="reset">Reset</button>
+            </div>
+
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-info text-center">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        </form>
+    </div>
+</div>
+{% endblock %}

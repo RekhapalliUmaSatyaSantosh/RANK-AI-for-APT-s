@@ -1,0 +1,101 @@
+{% extends 'admins/adminbase.html' %}
+{% block contents %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>View Dataset</title>
+
+<style>
+/* ---------- Page Layout ---------- */
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #f7f8fa;
+    margin: 0;
+    padding: 0;
+}
+
+section.content {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px 30px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+    animation: fadeIn 0.8s ease-in;
+}
+
+h2 {
+    text-align: center;
+    color: #610909;
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
+}
+
+/* ---------- Table Styling ---------- */
+.table-container {
+    overflow-x: auto; /* Responsive scroll if table is wide */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 15px;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+table th {
+    background: linear-gradient(135deg, #5851cf 0%, #7a74e0 100%);
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+table tr:nth-child(even) {
+    background-color: #f3f5ff;
+}
+
+table tr:hover {
+    background-color: #ecebff;
+    transform: scale(1.01);
+    transition: all 0.2s ease;
+}
+
+/* ---------- Extras ---------- */
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(10px);}
+    to   {opacity: 1; transform: translateY(0);}
+}
+
+
+
+/* Mobile tweaks */
+@media (max-width: 768px) {
+    h2 { font-size: 1.5rem; }
+    table th, table td { padding: 10px 12px; }
+}
+</style>
+</head>
+<body>
+<section class="content">
+    <h2>View Dataset</h2>
+
+    <div class="table-container">
+        <!-- The dataset will be injected here from Django -->
+        {{ data|safe }}
+    </div>
+
+    <!-- Optional action button -->
+   
+</section>
+</body>
+</html>
+{% endblock %}
