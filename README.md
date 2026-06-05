@@ -108,7 +108,7 @@ http://127.0.0.1:8000/
 
 ## 👨‍💻 Author
 
-Santosh Rekhapalli
+Rekhapalli Uma Satya Santosh
 
 ---
 
